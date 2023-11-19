@@ -120,6 +120,9 @@
             };
 
         public static readonly List<string> SpeedTestUrls = new() {
+            @"https://speed.cloudflare.com/__down?bytes=100000000",
+            @"https://speed.cloudflare.com/__down?bytes=10000000",
+            @"http://cachefly.cachefly.net/50mb.test",
             @"http://cachefly.cachefly.net/100mb.test",
             @"http://cachefly.cachefly.net/10mb.test"
         };
@@ -140,7 +143,7 @@
         public static readonly List<string> flows = new() { "", "xtls-rprx-vision", "xtls-rprx-vision-udp443" };
         public static readonly List<string> networks = new() { "tcp", "kcp", "ws", "h2", "quic", "grpc" };
         public static readonly List<string> kcpHeaderTypes = new() { "srtp", "utp", "wechat-video", "dtls", "wireguard" };
-        public static readonly List<string> coreTypes = new() { "v2fly", "SagerNet", "Xray", "v2fly_v5", "sing_box" };
+        public static readonly List<string> coreTypes = new() { "v2fly", "SagerNet", "Xray", "sing_box" };
         public static readonly List<string> coreTypes4VLESS = new() { "Xray", "sing_box" };
         public static readonly List<string> domainStrategys = new() { "AsIs", "IPIfNonMatch", "IPOnDemand" };
         public static readonly List<string> domainStrategys4Singbox = new() { "ipv4_only", "ipv6_only", "prefer_ipv4", "prefer_ipv6", "" };

@@ -139,10 +139,10 @@ namespace v2rayN.Views
                 //checkupdate
                 this.BindCommand(ViewModel, vm => vm.CheckUpdateNCmd, v => v.menuCheckUpdateN).DisposeWith(disposables);
                 this.BindCommand(ViewModel, vm => vm.CheckUpdateV2flyCoreCmd, v => v.menuCheckUpdateV2flyCore).DisposeWith(disposables);
-                this.BindCommand(ViewModel, vm => vm.CheckUpdateSagerNetCoreCmd, v => v.menuCheckUpdateSagerNetCore).DisposeWith(disposables);
+                //this.BindCommand(ViewModel, vm => vm.CheckUpdateSagerNetCoreCmd, v => v.menuCheckUpdateSagerNetCore).DisposeWith(disposables);
                 this.BindCommand(ViewModel, vm => vm.CheckUpdateXrayCoreCmd, v => v.menuCheckUpdateXrayCore).DisposeWith(disposables);
-                this.BindCommand(ViewModel, vm => vm.CheckUpdateClashCoreCmd, v => v.menuCheckUpdateClashCore).DisposeWith(disposables);
-                this.BindCommand(ViewModel, vm => vm.CheckUpdateClashMetaCoreCmd, v => v.menuCheckUpdateClashMetaCore).DisposeWith(disposables);
+                //this.BindCommand(ViewModel, vm => vm.CheckUpdateClashCoreCmd, v => v.menuCheckUpdateClashCore).DisposeWith(disposables);
+                //this.BindCommand(ViewModel, vm => vm.CheckUpdateClashMetaCoreCmd, v => v.menuCheckUpdateClashMetaCore).DisposeWith(disposables);
                 this.BindCommand(ViewModel, vm => vm.CheckUpdateSingBoxCoreCmd, v => v.menuCheckUpdateSingBoxCore).DisposeWith(disposables);
                 this.BindCommand(ViewModel, vm => vm.CheckUpdateGeoCmd, v => v.menuCheckUpdateGeo).DisposeWith(disposables);
 
@@ -322,33 +322,29 @@ namespace v2rayN.Views
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
             {
-                if (e.Key == Key.V)
+                switch (e.Key)
                 {
-                    ViewModel?.AddServerViaClipboard();
-                }
-                else if (e.Key == Key.P)
-                {
-                    ViewModel?.ServerSpeedtest(ESpeedActionType.Ping);
-                }
-                else if (e.Key == Key.O)
-                {
-                    ViewModel?.ServerSpeedtest(ESpeedActionType.Tcping);
-                }
-                else if (e.Key == Key.R)
-                {
-                    ViewModel?.ServerSpeedtest(ESpeedActionType.Realping);
-                }
-                else if (e.Key == Key.S)
-                {
-                    _ = ViewModel?.ScanScreenTaskAsync();
-                }
-                else if (e.Key == Key.T)
-                {
-                    ViewModel?.ServerSpeedtest(ESpeedActionType.Speedtest);
-                }
-                else if (e.Key == Key.E)
-                {
-                    ViewModel?.ServerSpeedtest(ESpeedActionType.Mixedtest);
+                    case Key.V:
+                        ViewModel?.AddServerViaClipboard();
+                        break;
+                    case Key.P:
+                        ViewModel?.ServerSpeedtest(ESpeedActionType.Ping);
+                        break;
+                    case Key.O:
+                        ViewModel?.ServerSpeedtest(ESpeedActionType.Tcping);
+                        break;
+                    case Key.R:
+                        ViewModel?.ServerSpeedtest(ESpeedActionType.Realping);
+                        break;
+                    case Key.S:
+                        _ = ViewModel?.ScanScreenTaskAsync();
+                        break;
+                    case Key.T:
+                        ViewModel?.ServerSpeedtest(ESpeedActionType.Speedtest);
+                        break;
+                    case Key.E:
+                        ViewModel?.ServerSpeedtest(ESpeedActionType.Mixedtest);
+                        break;
                 }
             }
             else
